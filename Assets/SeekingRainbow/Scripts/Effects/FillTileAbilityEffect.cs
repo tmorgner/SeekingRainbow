@@ -15,15 +15,36 @@ namespace SeekingRainbow.Scripts
 
     public float Delay;
     public EffectMarker EffectPrefab;
+    public bool Propagate;
 
-    public override void ApplyAbility(AbilityEffector source, ElementalAbility a, Vector2Int start, Vector2Int position)
+    public bool IsValid(EffectMarker marker)
     {
       if (EffectPrefab == null)
       {
-        return;
+        Debug.Log("No Prefab");
+        return false;
       }
 
-      if (source.GetComponentInChildren<EffectMarker>() != null)
+      if (marker == null)
+      {
+        if (EffectPrefab.RequiredEffects.Count == 0)
+        {
+          Debug.Log("OK: No Prefab and none needed");
+          return true;
+        }
+
+        Debug.Log("No marker found, but effect requires previous stuff");
+        return false;
+      }
+
+      Debug.Log("No marker found, but effect requires previous stuff");
+      return EffectPrefab.RequiredEffects.Contains(marker.Source);
+    }
+
+    public override void ApplyAbility(AbilityEffector source, ElementalAbility a, Vector2Int start, Vector2Int position)
+    {
+
+      if (!IsValid(source.GetComponentInChildren<EffectMarker>()))
       {
         return;
       }
@@ -33,7 +54,10 @@ namespace SeekingRainbow.Scripts
       go.transform.SetParent(source.transform, false);
       go.transform.position = source.transform.position;
 
-      go.StartCoroutine(PropagateEffect(a, start + position));
+      if (Propagate)
+      {
+        go.StartCoroutine(PropagateEffect(a, start + position));
+      }
     }
 
     IEnumerator PropagateEffect(ElementalAbility elementalAbility, Vector2Int position)

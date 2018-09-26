@@ -15,12 +15,14 @@ namespace SeekingRainbow.Scripts
       var targets = Physics2D.LinecastAll(castingStart, end);
       foreach (var t in targets)
       {
-        var ae = t.transform.GetComponent<AbilityEffector>();
-        if (ae != null && ae.effect != null)
+        var aes = t.transform.GetComponents<AbilityEffector>();
+        foreach (var ae in aes)
         {
-          var effect = ae.effect;
-          Debug.Log("Found " + t);
-          effect.ApplyAbility(ae, ab, start, input);
+          if (ae != null && ae.effect != null)
+          {
+            var effect = ae.effect;
+            effect.ApplyAbility(ae, ab, start, input);
+          }
         }
       }
     }
