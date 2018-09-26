@@ -3,7 +3,8 @@ using UnityEngine;
 
 namespace SeekingRainbow.Scripts
 {
-  public class FillWaterTileAbilityEffect : AbilityEffect
+  [CreateAssetMenu]
+  public class FillTileAbilityEffect : AbilityEffect
   {
     static readonly Vector2Int[] neighbours = {
       new Vector2Int(-1, 0),
@@ -13,31 +14,26 @@ namespace SeekingRainbow.Scripts
     };
 
     public float Delay;
-    public EffectMarker Effect;
+    public EffectMarker EffectPrefab;
 
-    public override void PerformAbility(ElementalAbility a, Vector2Int start, Vector2Int position)
+    public override void ApplyAbility(AbilityEffector source, ElementalAbility a, Vector2Int start, Vector2Int position)
     {
-      if (Effect == null)
+      if (EffectPrefab == null)
       {
         return;
       }
 
-      var c = GetComponentInChildren<EffectMarker>();
-      if (c != null)
+      if (source.GetComponentInChildren<EffectMarker>() != null)
       {
-        if (c.Source == a)
-        {
-          return;
-        }
+        return;
       }
-      
 
-      var go = Instantiate(Effect);
+      var go = Instantiate(EffectPrefab);
       go.Source = a;
-      go.transform.SetParent(this.transform, false);
-      go.transform.position = transform.position;
+      go.transform.SetParent(source.transform, false);
+      go.transform.position = source.transform.position;
 
-      StartCoroutine(PropagateEffect(a, start + position));
+      go.StartCoroutine(PropagateEffect(a, start + position));
     }
 
     IEnumerator PropagateEffect(ElementalAbility elementalAbility, Vector2Int position)
