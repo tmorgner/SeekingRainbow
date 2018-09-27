@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: Fire
   m_EditorClassIdentifier: 
   Name: Fire
+  TriggerKey: 50
   Sprite: {fileID: 0}
   SpriteSelected: {fileID: 0}
   SpriteNotAvailable: {fileID: 0}

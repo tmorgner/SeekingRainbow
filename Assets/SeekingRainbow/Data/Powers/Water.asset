@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: Water
   m_EditorClassIdentifier: 
   Name: Water
+  TriggerKey: 51
   Sprite: {fileID: 0}
   SpriteSelected: {fileID: 0}
   SpriteNotAvailable: {fileID: 0}

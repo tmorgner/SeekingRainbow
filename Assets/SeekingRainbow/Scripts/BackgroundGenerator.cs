@@ -22,10 +22,8 @@ namespace SeekingRainbow.Scripts
         if (!rect.Contains(pos))
         {
           var item = PickRandom(Items);
-          var go = Instantiate(item, 
-                      new Vector3(pos.x, pos.y, transform.position.z), 
-                      item.transform.rotation, 
-                      transform);
+          var go = Instantiate(item, transform);
+          go.transform.position = new Vector3(pos.x, pos.y, transform.position.z);
           var wm = go.GetComponent<WallMarker>();
           wm.enabled = false;
         }

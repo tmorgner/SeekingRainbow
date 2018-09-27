@@ -26,30 +26,56 @@ namespace SeekingRainbow.Scripts
         return;
       }
 
+      if (pauseInputUntil > Time.time)
+      {
+        return;
+      }
+
       var input = QueryInputs();
       if (input != Vector2Int.zero)
       {
-        if (Session.SelectedAbilities.Count > 0)
+        if (Session.SelectedAbilities.Count > 0 && 
+            ShouldPerformAbility())
         {
           // activate ability instead of moving.
-          var ab = Session.SelectedAbilities.First();
-          PerformAbility(ab, input);
-          Session.Deselect(ab);
-          pauseInputUntil = Time.time + 0.5f;
-        }
-        else if (pauseInputUntil > Time.time)
-        {
-          // sleep
+          UseAbility(input);
         }
         else
         {
           Transform collision;
           if (!mover.AttemptMove(input.x, input.y, out collision))
           {
-            // something happened.
+            // something happened. Lets try whether using an ability can
+            // clear things up.
+            if (Session.SelectedAbilities.Count > 0)
+            {
+              UseAbility(input);
+            }
           }
         }
       }
+    }
+
+    void UseAbility(Vector2Int input)
+    {
+      var ab = Session.SelectedAbilities.First();
+      PerformAbility(ab, input);
+      if (!Session.AutoSelectAbility)
+      {
+        Session.Deselect(ab);
+      }
+
+      pauseInputUntil = Time.time + 0.5f;
+    }
+
+    bool ShouldPerformAbility()
+    {
+      if (Session.AutoSelectAbility == false)
+      {
+        return true;
+      }
+
+      return Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
     }
 
     void PerformAbility(ElementalAbility ab, Vector2Int input)

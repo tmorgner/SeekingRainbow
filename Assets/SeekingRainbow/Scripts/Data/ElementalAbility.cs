@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using UnityEngine;
 
 namespace SeekingRainbow.Scripts
@@ -11,19 +10,33 @@ namespace SeekingRainbow.Scripts
     public Sprite Sprite;
     public Sprite SpriteSelected;
     public Sprite SpriteNotAvailable;
-    
+    public GameObject ActivationEffect;
+
     public List<ElementalBasePower> Requirements;
 
-    public bool CanActivate(ICollection<ElementalBasePower> powers)
+    public bool CanActivate(HashSet<ElementalBasePower> powers)
     {
       if (Requirements.Count == 0)
       {
         return true;
       }
 
+      if (Requirements.Count != powers.Count)
+      {
+        return false;
+      }
+
       foreach (var req in Requirements)
       {
         if (!powers.Contains(req))
+        {
+          return false;
+        }
+      }
+
+      foreach (var req in powers)
+      {
+        if (!Requirements.Contains(req))
         {
           return false;
         }

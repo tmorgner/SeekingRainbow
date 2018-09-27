@@ -15,5 +15,7 @@ MonoBehaviour:
   Sprite: {fileID: 0}
   SpriteSelected: {fileID: 0}
   SpriteNotAvailable: {fileID: 0}
+  ActivationEffect: {fileID: 1053037344192096, guid: 425d9ac33599f0944a472ce3750861da,
+    type: 2}
   Requirements:
   - {fileID: 11400000, guid: c3a85701f1c2ad545919852ae91501fc, type: 2}

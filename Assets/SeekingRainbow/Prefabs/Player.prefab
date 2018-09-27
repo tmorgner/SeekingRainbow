@@ -26,6 +26,8 @@ GameObject:
   - component: {fileID: 114569230006548494}
   - component: {fileID: 114280559696195272}
   - component: {fileID: 114034165696439460}
+  - component: {fileID: 114264841087825170}
+  - component: {fileID: 114867127164228672}
   m_Layer: 13
   m_Name: Player
   m_TagString: Untagged
@@ -154,6 +156,18 @@ MonoBehaviour:
   Powers:
   - {fileID: 11400000, guid: bd1cab7151d5b1d4ebdbeb187bb1882a, type: 2}
   - {fileID: 11400000, guid: c3a85701f1c2ad545919852ae91501fc, type: 2}
+--- !u!114 &114264841087825170
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1679838508569412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f49cd64f57f464eafcc6269021884e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Session: {fileID: 11400000, guid: 1ca781427acf5564ab817231640facc8, type: 2}
 --- !u!114 &114280559696195272
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -210,6 +224,18 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114867127164228672
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1679838508569412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 348231d6096c4c94be27fa5ea14c8c37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Session: {fileID: 11400000, guid: 1ca781427acf5564ab817231640facc8, type: 2}
 --- !u!114 &114892175384275794
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -258,7 +284,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -900995045
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300080, guid: fbe1e7b94bb1a4a099d5bcb15a00141c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

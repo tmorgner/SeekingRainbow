@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: Earth
   m_EditorClassIdentifier: 
   Name: Earth
+  TriggerKey: 49
   Sprite: {fileID: 0}
   SpriteSelected: {fileID: 0}
   SpriteNotAvailable: {fileID: 0}

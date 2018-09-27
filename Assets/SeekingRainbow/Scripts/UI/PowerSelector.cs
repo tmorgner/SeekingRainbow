@@ -28,19 +28,6 @@ namespace SeekingRainbow.Scripts.UI
         Template.gameObject.SetActive(false);
         templateRect = Template.GetComponent<RectTransform>();
       }
-
-      Session.BasePowerDeselected.AddListener(OnAbilityDeselected);
-      Session.BasePowerSelected.AddListener(OnAbilitySelected);
-    }
-
-    void OnAbilitySelected(ElementalBasePower obj)
-    {
-      
-    }
-
-    void OnAbilityDeselected(ElementalBasePower obj)
-    {
-      
     }
 
     void Update()

@@ -33,6 +33,8 @@ namespace SeekingRainbow.Scripts
 
     public HashSet<ElementalAbility> SelectedAbilities { get; private set; }
 
+    public bool AutoSelectAbility;
+
     [NonSerialized] public bool IsPlaythrough;
 
     public WeakEvent<ElementalBasePower> BasePowerReceived;
@@ -95,29 +97,6 @@ namespace SeekingRainbow.Scripts
       }
     }
 
-    void UpdateAvailableAbilities()
-    {
-      for (var i = AvailableAbilities.Count - 1; i >= 0; i--)
-      {
-        var a = AvailableAbilities[i];
-        if (!a.CanActivate(SelectedPowers))
-        {
-          AvailableAbilities.RemoveAt(i);
-        }
-      }
-
-      foreach (var a in Abilities)
-      {
-        if (a.CanActivate(SelectedPowers))
-        {
-          if (!AvailableAbilities.Contains(a))
-          {
-            AvailableAbilities.Add(a);
-          }
-        }
-      }
-    }
-
     public void LosePower(ElementalBasePower power)
     {
       if (AvailablePowers.Contains(power))
@@ -143,6 +122,30 @@ namespace SeekingRainbow.Scripts
       {
         UpdateAvailableAbilities();
         BasePowerDeselected.Invoke(power);
+      }
+    }
+
+    void UpdateAvailableAbilities()
+    {
+      for (var i = AvailableAbilities.Count - 1; i >= 0; i--)
+      {
+        var a = AvailableAbilities[i];
+        if (!a.CanActivate(SelectedPowers))
+        {
+          AvailableAbilities.RemoveAt(i);
+          Deselect(a);
+        }
+      }
+
+      foreach (var a in Abilities)
+      {
+        if (a.CanActivate(SelectedPowers))
+        {
+          if (!AvailableAbilities.Contains(a))
+          {
+            AvailableAbilities.Add(a);
+          }
+        }
       }
     }
 

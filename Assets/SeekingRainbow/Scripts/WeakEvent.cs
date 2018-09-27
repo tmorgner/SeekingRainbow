@@ -43,7 +43,7 @@ namespace SeekingRainbow.Scripts
       listeners.Add(new WeakReference<Action<T>>(l));
     }
 
-    public void RemoveListener(Action l)
+    public void RemoveListener(Action<T> l)
     {
       if (listeners == null)
       {

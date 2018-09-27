@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: Wind
   m_EditorClassIdentifier: 
   Name: Wind
+  TriggerKey: 52
   Sprite: {fileID: 0}
   SpriteSelected: {fileID: 0}
   SpriteNotAvailable: {fileID: 0}

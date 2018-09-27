@@ -1061,6 +1061,48 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 410520, guid: b86334000bc0f47ba8dd33ea88cfcdb1,
     type: 2}
   m_PrefabInternal: {fileID: 116235185}
+--- !u!1001 &727814755
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1680239821}
+    m_Modifications:
+    - target: {fileID: 4185556772880772, guid: d97e79550f250ee4aaecd80bfeee0be2, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4185556772880772, guid: d97e79550f250ee4aaecd80bfeee0be2, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4185556772880772, guid: d97e79550f250ee4aaecd80bfeee0be2, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4185556772880772, guid: d97e79550f250ee4aaecd80bfeee0be2, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4185556772880772, guid: d97e79550f250ee4aaecd80bfeee0be2, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4185556772880772, guid: d97e79550f250ee4aaecd80bfeee0be2, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4185556772880772, guid: d97e79550f250ee4aaecd80bfeee0be2, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4185556772880772, guid: d97e79550f250ee4aaecd80bfeee0be2, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d97e79550f250ee4aaecd80bfeee0be2, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1001 &746591761
 Prefab:
   m_ObjectHideFlags: 0
@@ -1336,55 +1378,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2570048905bd94d6f8a99d13b80daf90, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &960327842
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 960327843}
-  - component: {fileID: 960327844}
-  m_Layer: 0
-  m_Name: Background Generator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &960327843
+--- !u!4 &960327843 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 960327842}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1680239821}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &960327844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 960327842}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a4becaf5605477aac7bf838de47d78f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Items:
-  - {fileID: 110520, guid: 2570048905bd94d6f8a99d13b80daf90, type: 2}
-  - {fileID: 110520, guid: b86334000bc0f47ba8dd33ea88cfcdb1, type: 2}
-  - {fileID: 110520, guid: 01ca47a83ebe24ca5a2f6b1d6dcd7481, type: 2}
-  - {fileID: 110520, guid: 022eda2f1f0cb45e28ff6840b68928bc, type: 2}
-  - {fileID: 110520, guid: e1816487b15cd4c5fbd9587521e068ca, type: 2}
-  - {fileID: 110520, guid: 5ddc2d7828b2d462286f09274199ad9a, type: 2}
-  - {fileID: 110520, guid: 64139c47b57e34c5fa97fd79f8d25244, type: 2}
-  - {fileID: 110520, guid: 741804431f4d341cdae1f15b3896aeff, type: 2}
+  m_CorrespondingSourceObject: {fileID: 4185556772880772, guid: d97e79550f250ee4aaecd80bfeee0be2,
+    type: 2}
+  m_PrefabInternal: {fileID: 727814755}
 --- !u!4 &960618137 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 410520, guid: 01ca47a83ebe24ca5a2f6b1d6dcd7481,

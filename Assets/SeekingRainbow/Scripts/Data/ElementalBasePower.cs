@@ -6,6 +6,7 @@ namespace SeekingRainbow.Scripts
   public class ElementalBasePower: ScriptableObject
   {
     public string Name;
+    public KeyCode TriggerKey;
     public Sprite Sprite;
     public Sprite SpriteSelected;
     public Sprite SpriteNotAvailable;

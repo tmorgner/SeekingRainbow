@@ -28,19 +28,6 @@ namespace SeekingRainbow.Scripts.UI
         Template.gameObject.SetActive(false);
         templateRect = Template.GetComponent<RectTransform>();
       }
-
-      Session.AbilityDeselected.AddListener(OnAbilityDeselected);
-      Session.AbilitySelected.AddListener(OnAbilitySelected);
-    }
-
-    void OnAbilitySelected(ElementalAbility obj)
-    {
-      
-    }
-
-    void OnAbilityDeselected(ElementalAbility obj)
-    {
-      
     }
 
     void Update()
@@ -93,6 +80,11 @@ namespace SeekingRainbow.Scripts.UI
 
     void OnAbilitySelectedInUI(ElementalAbility ability)
     {
+      if (Session.AutoSelectAbility)
+      {
+        return;
+      }
+
       if (Session.SelectedAbilities.Contains(ability))
       {
         Session.Deselect(ability);

@@ -54,11 +54,11 @@ TagManager:
   - name: Items
     uniqueID: 1861650685
     locked: 0
-  - name: Units
-    uniqueID: 3393972251
-    locked: 0
   - name: Effects
     uniqueID: 3920352179
+    locked: 0
+  - name: Units
+    uniqueID: 3393972251
     locked: 0
   - name: Fog
     uniqueID: 3859932549
