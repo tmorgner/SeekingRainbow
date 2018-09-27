@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114569230006548494}
   - component: {fileID: 114280559696195272}
   - component: {fileID: 114034165696439460}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4775173635006864}
   - component: {fileID: 114892175384275794}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: FootSteps
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -22,7 +22,7 @@ TagManager:
   - HighPath
   - Items
   - Effects
-  - 
+  - Player
   - 
   - 
   - 
@@ -59,4 +59,7 @@ TagManager:
     locked: 0
   - name: Effects
     uniqueID: 3920352179
+    locked: 0
+  - name: Fog
+    uniqueID: 3859932549
     locked: 0
