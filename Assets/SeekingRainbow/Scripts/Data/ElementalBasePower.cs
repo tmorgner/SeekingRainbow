@@ -10,5 +10,10 @@ namespace SeekingRainbow.Scripts
     public Sprite Sprite;
     public Sprite SpriteSelected;
     public Sprite SpriteNotAvailable;
+
+    void OnEnable()
+    {
+      Debug.Log("Enabled " + Name + " with " + Sprite);
+    }
   }
 }

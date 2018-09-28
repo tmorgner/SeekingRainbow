@@ -17,6 +17,8 @@ namespace SeekingRainbow.Scripts
     void Awake()
     {
       mover = GetComponent<MoveableBehaviour>();
+      Session.SelectedAbilities.Clear();
+      Session.SelectedPowers.Clear();
     }
 
     void Update()

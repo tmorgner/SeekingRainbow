@@ -92,13 +92,16 @@ namespace SeekingRainbow.Scripts.UI
       {
         this.image.enabled = false;
         this.text.text = name;
+        this.text.enabled = true;
       }
       else
       {
+        this.image.enabled = true;
         this.image.sprite = image;
         this.text.enabled = false;
       }
 
+      Debug.Log("SetUp called on " + name + " with " + image);
       var buttonColors = this.button.colors;
       if (selected == SpriteButtonState.Selected)
       {
