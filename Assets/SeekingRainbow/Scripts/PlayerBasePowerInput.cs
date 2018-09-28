@@ -10,6 +10,10 @@ namespace SeekingRainbow.Scripts
     {
       foreach (var power in Session.AvailablePowers)
       {
+        if (power == null)
+        {
+          continue;
+        }
         if (Input.GetKeyDown(power.TriggerKey))
         {
           if (Session.SelectedPowers.Contains(power))

@@ -7,6 +7,7 @@ namespace SeekingRainbow.Scripts
   {
     public GameSession Session;
     public List<ElementalBasePower> Powers;
+    private bool init;
 
     void Awake()
     {
@@ -18,5 +19,6 @@ namespace SeekingRainbow.Scripts
         }
       }
     }
+
   }
 }

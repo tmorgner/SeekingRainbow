@@ -211,8 +211,8 @@ MonoBehaviour:
   - 30
   - 30
   NextScene:
-    sceneAsset: {fileID: 102900000, guid: cd47cc8121cc14640876c7a573d9b80e, type: 3}
-    scenePath: Assets/SeekingRainbow/Scenes/Intro.unity
+    sceneAsset: {fileID: 102900000, guid: 709e74040d5334d45bd4f9c5d8dcd459, type: 3}
+    scenePath: Assets/SeekingRainbow/Scenes/Room01.unity
 --- !u!1 &1733356255
 GameObject:
   m_ObjectHideFlags: 0
