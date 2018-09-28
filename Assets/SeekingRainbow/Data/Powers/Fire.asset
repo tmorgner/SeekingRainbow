@@ -13,6 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Fire
   TriggerKey: 50
-  Sprite: {fileID: 0}
-  SpriteSelected: {fileID: 0}
+  Sprite: {fileID: 21300000, guid: 5d385816e71653449ab4a06411ce2235, type: 3}
+  SpriteSelected: {fileID: 21300000, guid: 5e766dfb210473a479ccfced44e62b15, type: 3}
   SpriteNotAvailable: {fileID: 0}

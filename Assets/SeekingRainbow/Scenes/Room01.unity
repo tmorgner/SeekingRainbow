@@ -994,6 +994,53 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!1001 &333408064
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1680239821}
+    m_Modifications:
+    - target: {fileID: 4695280985465596, guid: 6528e96e0402d8942b40189320643a77, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4695280985465596, guid: 6528e96e0402d8942b40189320643a77, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4695280985465596, guid: 6528e96e0402d8942b40189320643a77, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4695280985465596, guid: 6528e96e0402d8942b40189320643a77, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4695280985465596, guid: 6528e96e0402d8942b40189320643a77, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4695280985465596, guid: 6528e96e0402d8942b40189320643a77, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4695280985465596, guid: 6528e96e0402d8942b40189320643a77, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4695280985465596, guid: 6528e96e0402d8942b40189320643a77, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6528e96e0402d8942b40189320643a77, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!4 &333408065 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4695280985465596, guid: 6528e96e0402d8942b40189320643a77,
+    type: 2}
+  m_PrefabInternal: {fileID: 333408064}
 --- !u!1001 &351222735
 Prefab:
   m_ObjectHideFlags: 0
@@ -3849,6 +3896,7 @@ Transform:
   - {fileID: 609845990}
   - {fileID: 449548035}
   - {fileID: 1049464414}
+  - {fileID: 333408065}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
