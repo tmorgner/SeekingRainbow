@@ -1598,7 +1598,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1074788679082820, guid: 74abc1a301900bc49b62f84521958e26, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74abc1a301900bc49b62f84521958e26, type: 2}
@@ -3049,6 +3049,16 @@ Prefab:
     - target: {fileID: 4664534327788628, guid: c6879c58a59e1a04a9fb96363e28ac26, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 61311301756549294, guid: c6879c58a59e1a04a9fb96363e28ac26,
+        type: 2}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 61311301756549294, guid: c6879c58a59e1a04a9fb96363e28ac26,
+        type: 2}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6879c58a59e1a04a9fb96363e28ac26, type: 2}
