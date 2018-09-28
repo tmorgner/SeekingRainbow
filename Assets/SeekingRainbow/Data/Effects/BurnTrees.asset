@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e118d6c2e3465df45a86682e8c649d49, type: 3}
+  m_Name: BurnTrees
+  m_EditorClassIdentifier: 
+  EffectPrefab: {fileID: 114435599166912468, guid: eb25e7fa45d941944a914fbf9946f7b1,
+    type: 2}
+  itemsMask:
+    serializedVersion: 2
+    m_Bits: 512
+  replacementTile: {fileID: 110520, guid: 0d3760bc43010a84d92d1756662fa077, type: 2}
+  Propagate: 1

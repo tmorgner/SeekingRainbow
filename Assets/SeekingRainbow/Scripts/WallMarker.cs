@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Completed;
+using UnityEngine;
 
 namespace SeekingRainbow.Scripts
 {
@@ -7,7 +8,7 @@ namespace SeekingRainbow.Scripts
   {
     public static RectInt FindBoundaries()
     {
-      var markers = FindObjectsOfType<WallMarker>();
+      var markers = FindObjectsOfType<Wall>();
       if (markers.Length == 0)
       {
         // no markers.
@@ -39,8 +40,10 @@ namespace SeekingRainbow.Scripts
         }
       }
 
+
       rect.width += 1;
       rect.height += 1;
+      Debug.Log("Walls found at " + rect);
       return rect;
     }
 

@@ -14,4 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/SeekingRainbow/Scenes/Room02.unity
     guid: dd814764a2b94a543b1c950b91b8634a
+  - enabled: 1
+    path: Assets/SeekingRainbow/Scenes/Intro.unity
+    guid: cd47cc8121cc14640876c7a573d9b80e
+  - enabled: 1
+    path: Assets/SeekingRainbow/Scenes/End_Room.unity
+    guid: 4c32cdcd85109894b8468f01cedb8bb9
+  - enabled: 1
+    path: Assets/SeekingRainbow/Scenes/Room03.unity
+    guid: 250d819aeb010a3479daffe110a4581e
   m_configObjects: {}
