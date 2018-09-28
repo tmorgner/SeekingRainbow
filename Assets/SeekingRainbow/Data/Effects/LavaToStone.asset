@@ -11,8 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e118d6c2e3465df45a86682e8c649d49, type: 3}
   m_Name: LavaToStone
   m_EditorClassIdentifier: 
-  EffectPrefab: {fileID: 114435599166912468, guid: 30d5347ed1d688643ad1b104929d33f5,
-    type: 2}
+  PropagateEffect: 0
+  RequireEmpty: 0
+  Requirement: {fileID: 11400000, guid: 804cab34a68ccdb44bb8666f68b01f44, type: 2}
   itemsMask:
     serializedVersion: 2
     m_Bits: 512

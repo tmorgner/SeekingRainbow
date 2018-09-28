@@ -6,59 +6,60 @@ namespace SeekingRainbow.Scripts
   [CreateAssetMenu]
   public class ReplaceTileAbilityEffect : AbilityEffect
   {
-    static readonly Vector2Int[] neighbours =
-    {
-      new Vector2Int(-1, 0),
-      new Vector2Int(0, -1),
-      new Vector2Int(0, 1),
-      new Vector2Int(1, 0),
-    };
-
     public LayerMask itemsMask;
     public GameObject replacementTile;
-    public bool Propagate;
 
-    public override void ApplyAbility(AbilityEffector source, ElementalAbility a, Vector2Int start, Vector2Int position)
+    protected override void ApplyAbility(AbilityEffector source, Vector2Int start, Vector2Int position)
     {
-      if (!IsValid(source))
-      {
-        return;
-      }
-
       if (replacementTile == null)
       {
         return;
       }
 
-      source.StartCoroutine(ReplaceTile(start + position, source.trigger));
+      var effectMarker = source.GetComponentInChildren<AbilityEffectMarker>();
+      if (effectMarker != null)
+      {
+        if (RequireEmpty)
+        {
+          return;
+        }
+
+        if (Requirement != null && effectMarker.Creator != Requirement)
+        {
+          return;
+        }
+      }
+      else if (Requirement != null)
+      {
+        return;
+      }
+
+      source.StartCoroutine(ReplaceTile(source.transform, start + position));
     }
 
 
-    IEnumerator ReplaceTile(Vector2Int start, ElementalAbility sourceTrigger)
+    IEnumerator ReplaceTile(Transform targetTile, Vector2Int start)
     {
-      var tile = Physics2D.Linecast(start, Vector2.zero, itemsMask);
-      if (tile.transform == null)
-      {
-        Debug.Log("No target here");
-        yield break;
-      }
-
       yield return new WaitForEndOfFrame();
       Debug.Log("Doing work");
 
       var go = Instantiate(replacementTile);
-      go.transform.SetParent(tile.transform.parent, false);
-      go.transform.SetPositionAndRotation(tile.transform.position, tile.transform.rotation);
-      Destroy(tile.transform.gameObject);
+      go.transform.SetParent(targetTile.parent, false);
+      go.transform.SetPositionAndRotation(targetTile.position, targetTile.rotation);
 
-      if (Propagate)
+      var effectMarker = go.GetComponentInChildren<AbilityEffectMarker>();
+      if (effectMarker == null)
       {
-        foreach (var n in neighbours)
-        {
-          var target = n;
-          PerformAbilityAt(sourceTrigger, start, target);
-        }
+        var childObject = new GameObject();
+        effectMarker = childObject.AddComponent<AbilityEffectMarker>();
+        childObject.transform.SetParent(go.transform, false);
       }
+
+      effectMarker.Creator = this;
+
+      Destroy(targetTile.gameObject);
+      
+      PropagateEffectFromHere(start);
     }
   }
 }

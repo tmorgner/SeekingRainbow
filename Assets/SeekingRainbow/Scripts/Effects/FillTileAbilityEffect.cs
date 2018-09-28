@@ -6,44 +6,65 @@ namespace SeekingRainbow.Scripts
   [CreateAssetMenu]
   public class FillTileAbilityEffect : AbilityEffect
   {
-    static readonly Vector2Int[] neighbours = {
-      new Vector2Int(-1, 0),
-      new Vector2Int(0, -1),
-      new Vector2Int(0, 1),
-      new Vector2Int(1, 0),
-    };
-
+    public AbilityEffectMarker Effect;
     public float Delay;
-    public bool Propagate;
 
-    public override void ApplyAbility(AbilityEffector source, ElementalAbility a, Vector2Int start, Vector2Int position)
+    protected override void ApplyAbility(AbilityEffector source, Vector2Int start, Vector2Int position)
     {
-
-      if (!IsValid(source.GetComponentInChildren<EffectMarker>()))
+      Debug.Log("Attempt to apply effect " + name);
+      var marker = source.GetComponentInChildren<AbilityEffectMarker>();
+      if (marker != null)
       {
+        if (RequireEmpty)
+        {
+          Debug.Log("Found a marker but require empty. marker was " + marker.Creator); 
+          return;
+        }
+
+        if (Requirement != null && marker.Creator != Requirement)
+        {
+          Debug.Log("Found a marker but requirements do not match. marker was " + marker.Creator); 
+          return;
+        }
+        Destroy(marker.gameObject);
+      }
+      else if (Requirement != null)
+      {
+        Debug.Log("Found no marker but require one."); 
         return;
       }
 
-      var go = Instantiate(EffectPrefab);
-      go.Source = a;
-      go.transform.SetParent(source.transform, false);
-      go.transform.position = source.transform.position;
-
-      if (Propagate)
+      if (Effect != null)
       {
-        go.StartCoroutine(PropagateEffect(a, start + position));
+        var go = Instantiate(Effect);
+        go.Creator = this;
+        go.transform.SetParent(source.transform, false);
+        go.transform.position = source.transform.position;
+
+        if (PropagateEffect)
+        {
+          go.StartCoroutine(PerformPropagateEffect(start + position));
+        }
+      }
+      else
+      {
+        var go = new GameObject();
+        go.transform.SetParent(source.transform, false);
+
+        var next = go.AddComponent<AbilityEffectMarker>();
+        next.Creator = this;
+        if (PropagateEffect)
+        {
+          next.StartCoroutine(PerformPropagateEffect(start + position));
+        }
       }
     }
 
-    IEnumerator PropagateEffect(ElementalAbility elementalAbility, Vector2Int position)
+    IEnumerator PerformPropagateEffect(Vector2Int position)
     {
       yield return new WaitForSeconds(Delay);
 
-      foreach (var n in neighbours)
-      {
-        var target = n;
-        PerformAbilityAt(elementalAbility, position, target);
-      }
+      PropagateEffectFromHere(position);
     }
   }
 }

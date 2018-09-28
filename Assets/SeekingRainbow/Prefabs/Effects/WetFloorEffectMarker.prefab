@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4633451412395546}
   - component: {fileID: 212344272688904726}
-  - component: {fileID: 114435599166912468}
+  - component: {fileID: 114239986316266072}
   m_Layer: 12
   m_Name: WetFloorEffectMarker
   m_TagString: Untagged
@@ -41,7 +41,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114435599166912468
+--- !u!114 &114239986316266072
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -49,12 +49,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1798613455814306}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eac441d50862429eb698dc7fea6ed075, type: 3}
+  m_Script: {fileID: 11500000, guid: d8f7d976885d4c9b976d194f4efab3b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DeveloperNote: 
-  Source: {fileID: 11400000, guid: 713f6cdd359478043bff7fa4d9b8bcbd, type: 2}
-  RequiredEffects: []
+  Creator: {fileID: 0}
 --- !u!212 &212344272688904726
 SpriteRenderer:
   m_ObjectHideFlags: 1

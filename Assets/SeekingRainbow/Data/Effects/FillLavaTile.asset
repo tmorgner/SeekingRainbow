@@ -11,7 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa420ad54d042508f080cede69b0d8c, type: 3}
   m_Name: FillLavaTile
   m_EditorClassIdentifier: 
-  EffectPrefab: {fileID: 114435599166912468, guid: 89ed7e8da8c6c7a44b242f6d0abfadd2,
-    type: 2}
+  PropagateEffect: 1
+  RequireEmpty: 1
+  Requirement: {fileID: 0}
+  Effect: {fileID: 114427414910788054, guid: 89ed7e8da8c6c7a44b242f6d0abfadd2, type: 2}
   Delay: 0.4
   Propagate: 1

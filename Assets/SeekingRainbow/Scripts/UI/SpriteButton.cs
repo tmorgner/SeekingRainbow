@@ -101,7 +101,7 @@ namespace SeekingRainbow.Scripts.UI
         this.text.enabled = false;
       }
 
-      Debug.Log("SetUp called on " + name + " with " + image);
+      // Debug.Log("SetUp called on " + name + " with " + image);
       var buttonColors = this.button.colors;
       if (selected == SpriteButtonState.Selected)
       {

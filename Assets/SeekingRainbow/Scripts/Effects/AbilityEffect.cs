@@ -4,45 +4,34 @@ namespace SeekingRainbow.Scripts
 {
   public abstract class AbilityEffect : ScriptableObject
   {
-    public EffectMarker EffectPrefab;
-
-    public abstract void ApplyAbility(AbilityEffector source, ElementalAbility a, Vector2Int start, Vector2Int position);
-
-    public bool IsValid(AbilityEffector source)
+    protected static readonly Vector2Int[] neighbours =
     {
-      var em = source.GetComponentInChildren<EffectMarker>();
-      return IsValid(em);
-    }
+      new Vector2Int(-1, 0),
+      new Vector2Int(0, -1),
+      new Vector2Int(0, 1),
+      new Vector2Int(1, 0),
+    };
 
-    public bool IsValid(EffectMarker marker)
+    public bool PropagateEffect;
+    public bool RequireEmpty;
+    public AbilityEffect Requirement;
+
+    protected abstract void ApplyAbility(AbilityEffector source, Vector2Int start, Vector2Int position);
+
+    protected void PropagateEffectFromHere(Vector2Int start)
     {
-      
-      if (EffectPrefab == null)
+      if (PropagateEffect)
       {
-        Debug.Log("No Prefab");
-        return false;
-      }
-
-      if (marker == null)
-      {
-        if (EffectPrefab.RequiredEffects.Count == 0)
+        foreach (var n in neighbours)
         {
-          Debug.Log("OK: No Prefab and none needed");
-          return true;
+          var direction = n;
+          PropagateEffectTo(start, direction);
         }
-
-        Debug.Log("No marker found, but effect requires previous stuff");
-        return false;
       }
-
-      Debug.Log("No marker found, but effect requires previous stuff");
-      return EffectPrefab.RequiredEffects.Contains(marker.Source);
     }
 
-    public static void PerformAbilityAt(ElementalAbility ab, Vector2Int start, Vector2Int input)
+    void PropagateEffectTo(Vector2Int start, Vector2Int input)
     {
-      Debug.Log("Attempt to cast ability " + ab + " from " + start + " in direction " + input);
-
       var end = start + input;
       var castingStart = Vector2.Lerp(start, end, 0.6f);
       var targets = Physics2D.LinecastAll(castingStart, end);
@@ -50,35 +39,86 @@ namespace SeekingRainbow.Scripts
       {
         Debug.Log("No targets in that direction");
       }
+
       foreach (var t in targets)
       {
-        var aes = t.transform.GetComponents<AbilityEffector>();
-        if (aes.Length == 0)
+        var abilityEffectors = t.transform.GetComponents<AbilityEffector>();
+        if (abilityEffectors.Length == 0)
         {
           Debug.Log("No targets in that direction [0]");
         }
-        foreach (var ae in aes)
+
+        foreach (var effector in abilityEffectors)
         {
-          if (ae == null)
+          if (effector.effect == this)
           {
-            continue;
-          }
+            var effect = effector.effect;
+            if (effect == null)
+            {
+              Debug.LogWarning("Configuration Error: No effect defined on effector.");
+              continue;
+            }
 
-          if (ae.effect == null)
-          {
-            Debug.Log("No effect");
-            continue;
-          }
-
-          if (ae.trigger == ab)
-          {
-            Debug.Log("Starting effect trigger " + ae);
-            var effect = ae.effect;
-            effect.ApplyAbility(ae, ab, start, input);
+            Debug.Log("Starting effect trigger " + effector);
+            effect.ApplyAbility(effector, start, input);
           }
           else
           {
-            Debug.Log("Trigger does not match " + ae);
+            Debug.Log("Trigger does not match " + effector);
+          }
+        }
+      }
+    }
+
+    /// <summary>
+    ///  Let a player cast an ability on to a given tile.
+    /// </summary>
+    /// <param name="ab"></param>
+    /// <param name="start"></param>
+    /// <param name="input"></param>
+    public static void PerformAbilityAt(ElementalAbility ab, Vector2Int start, Vector2Int input)
+    {
+      Debug.Log("Attempt to cast an ability " + ab + " from " + start + " in direction " + input);
+
+      var end = start + input;
+      var castingStart = Vector2.Lerp(start, end, 0.6f);
+      var targets = Physics2D.LinecastAll(castingStart, end);
+      if (targets.Length == 0)
+      {
+        Debug.Log("No targets in that direction");
+        return;
+      }
+
+      foreach (var t in targets)
+      {
+        var abilityEffectors = t.transform.GetComponents<AbilityEffector>();
+        if (abilityEffectors.Length == 0)
+        {
+          Debug.Log("No targets in that direction [0]");
+        }
+
+        foreach (var effector in abilityEffectors)
+        {
+          if (effector == null)
+          {
+            continue;
+          }
+
+          if (effector.trigger == ab)
+          {
+            var effect = effector.effect;
+            if (effect == null)
+            {
+              Debug.LogWarning("Configuration Error: No effect defined on effector.");
+              continue;
+            }
+
+            Debug.Log("Starting effect trigger " + effector);
+            effect.ApplyAbility(effector, start, input);
+          }
+          else
+          {
+            Debug.Log("Trigger does not match " + effector);
           }
         }
       }

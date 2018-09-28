@@ -11,7 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa420ad54d042508f080cede69b0d8c, type: 3}
   m_Name: FillWaterTile
   m_EditorClassIdentifier: 
-  EffectPrefab: {fileID: 114435599166912468, guid: 8abb50cb45b3daf48b834114b7799e07,
-    type: 2}
+  PropagateEffect: 1
+  RequireEmpty: 1
+  Requirement: {fileID: 0}
+  Effect: {fileID: 114239986316266072, guid: 8abb50cb45b3daf48b834114b7799e07, type: 2}
   Delay: 0.1
   Propagate: 1

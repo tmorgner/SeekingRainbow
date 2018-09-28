@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 114090219147993090}
   - component: {fileID: 114905055788421766}
   - component: {fileID: 114483590168970698}
+  - component: {fileID: 114636233575618820}
   m_Layer: 9
   m_Name: Floor2
   m_TagString: Untagged
@@ -146,6 +147,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 11400000, guid: 2a64806499f3e99419a66f17bb739c33, type: 2}
   effect: {fileID: 11400000, guid: 804cab34a68ccdb44bb8666f68b01f44, type: 2}
+  effectTriggered:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &114636233575618820
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 137908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fc420e79bd6f824db9d32729a3d101b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trigger: {fileID: 11400000, guid: 2a64806499f3e99419a66f17bb739c33, type: 2}
+  effect: {fileID: 11400000, guid: 4c48927996c8e534ca92479be8ba0ff1, type: 2}
   effectTriggered:
     m_PersistentCalls:
       m_Calls: []

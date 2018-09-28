@@ -9,9 +9,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9aa420ad54d042508f080cede69b0d8c, type: 3}
-  m_Name: __LavaToWaterTile
+  m_Name: EvaporateWaterTile
   m_EditorClassIdentifier: 
-  EffectPrefab: {fileID: 114435599166912468, guid: 30d5347ed1d688643ad1b104929d33f5,
-    type: 2}
+  PropagateEffect: 1
+  RequireEmpty: 0
+  Requirement: {fileID: 11400000, guid: 7c97f485d89faef499cf237771ae7e16, type: 2}
+  Effect: {fileID: 0}
   Delay: 0
-  Propagate: 0
